@@ -12,7 +12,7 @@ export const BoolSetter = (props: BoolSetterProps) => {
       可以输入
     </Col>
     <Col>
-      <Switch onChange={props.onChange} defaultChecked={props.value} />
+      <Switch onChange={props.onChange} checked={props.value} />
     </Col>
   </Row>;
 }
