@@ -1,13 +1,24 @@
 import { useState } from'react';
 import { Divider, theme } from 'antd';
-import { BoolSetter, ColorSetter } from './setters';
+import useStateWithLog from './utils/useStateWithLog';
+import { BoolSetter, ColorSetter, DateMonthSetter, DateSetter, DateYearSetter, DateRangeSetter, FunctionSetter } from './setters';
 import type { Color } from 'antd/es/color-picker';
+import type { RangeValue } from './setters/daterangesetter';
+import { Dayjs } from 'dayjs';
 
 export const App = () => {
-  const [bool, setBool] = useState<boolean>(false);
+  const [bool, setBool] = useStateWithLog<boolean>(false);
 
   const { token } = theme.useToken();
-  const [color, setColor] = useState<Color | string>(token.colorPrimary);
+  const [color, setColor] = useStateWithLog<Color | string>(token.colorPrimary);
+
+  const [dateMonth, setDateMonth] = useStateWithLog<Dayjs | null>(null);
+
+  const [date, setDate] = useStateWithLog<Dayjs | null>(null);
+
+  const [dateYear, setDateYear] = useStateWithLog<Dayjs | null>(null);
+
+  const [dateRange, setDateRange] = useStateWithLog<RangeValue>(null);
 
   return (
     // <div className={clsx(styles.appWrapper)}>
@@ -29,6 +40,15 @@ export const App = () => {
       <BoolSetter value={bool} onChange={setBool} />
       <Divider />
       <ColorSetter value={color} onChange={setColor} />
+      <Divider />
+      <DateMonthSetter value={dateMonth} onChange={setDateMonth} />
+      <Divider />
+      <DateSetter value={date} onChange={setDate} />
+      <Divider />
+      <DateYearSetter value={dateYear} onChange={setDateYear} />
+      <Divider />
+      <DateRangeSetter value={dateRange} onChange={setDateRange} />
+      <Divider />
     </>
   );
 }

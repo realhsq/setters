@@ -22,10 +22,10 @@ export default defineConfig(({ mode }) => {
       open: true,
       https: true,
     },
-    css: {
-      postcss: {
-        plugins: [autoprefixer],
-      },
-    },
+    // css: {
+    //   postcss: {
+    //     plugins: [autoprefixer],
+    //   },
+    // },
   };
 });

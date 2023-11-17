@@ -1,5 +1,4 @@
-import React from 'react';
-import { Row, Col, Switch} from 'antd'
+import { Row, Col, Switch} from 'antd';
 
 interface BoolSetterProps {
   value: boolean;
